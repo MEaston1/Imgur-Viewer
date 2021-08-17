@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/popularImagesFragment"
+    android:title="Trending Images"
+    android:icon="@drawable/ic_trending_icon"/>
+    <item
+        android:id="@+id/favouritedImagesFragment"
+        android:title="Favourite Images"
+        android:icon="@drawable/ic_baseline_favorite_24"/>
+    <item
+        android:id="@+id/searchedImagesFragment"
+        android:title="Search Images"
+        android:icon="@drawable/ic_baseline_search_24"/>
+</menu>

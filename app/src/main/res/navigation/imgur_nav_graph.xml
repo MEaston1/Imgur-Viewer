@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/imgur_nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/imgur_nav_graph"
+    app:startDestination="@id/popularImagesFragment">
 
+    <fragment
+        android:id="@+id/popularImagesFragment"
+        android:name="com.view.imgurviewer.ui.fragments.PopularImagesFragment"
+        android:label="PopularImagesFragment">
+        <action
+            android:id="@+id/action_popularImagesFragment_to_imageDetailsFragment"
+            app:destination="@id/imageDetailsFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/favouritedImagesFragment"
+        android:name="com.view.imgurviewer.ui.fragments.FavouritedImagesFragment"
+        android:label="FavouritedImagesFragment" >
+        <action
+            android:id="@+id/action_favouritedImagesFragment_to_imageDetailsFragment"
+            app:destination="@id/imageDetailsFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/imageDetailsFragment"
+        android:name="com.view.imgurviewer.ui.fragments.ImageDetailsFragment"
+        android:label="ImageDetailsFragment" />
+    <fragment
+        android:id="@+id/searchedImagesFragment"
+        android:name="com.view.imgurviewer.ui.fragments.SearchedImagesFragment"
+        android:label="SearchedImagesFragment" >
+        <action
+            android:id="@+id/action_searchedImagesFragment_to_imageDetailsFragment"
+            app:destination="@id/imageDetailsFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+    </fragment>
 </navigation>
