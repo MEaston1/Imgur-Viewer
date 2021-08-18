@@ -8,14 +8,14 @@ import retrofit2.http.Query
 interface ImgurAPI {
     @GET("gallery")
     suspend fun getGallery(
-        @Query("section")
-        sectionName: String = "hot",
-        @Query("sort")
-        sortName: String = "virtal",
-        @Query("page")      // page value to allow for pagination
-        pageNumber: Int = 1,
-        @Query("apiKey")
-        apiKey: String = ApiKeys.CLIENT_ID
+            @Query("section")
+            sectionName: String = "hot",
+            @Query("sort")
+            sortName: String = "viral",
+            @Query("page")      // page value to allow for pagination
+            pageNumber: Int = 1,
+            @Query("apiKey")
+            apiKey: String = ApiKeys.CLIENT_ID
     ): Response<ImgurResponse>
 
     // separate network request for the search feature
