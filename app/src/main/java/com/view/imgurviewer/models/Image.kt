@@ -17,7 +17,7 @@ data class Image(
     //val id: String,
     val link: String,
     val size: Int,
-    val title: Any,
+    val title: String,
     val type: String,
     val views: Int,
     val width: Int
