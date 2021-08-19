@@ -2,6 +2,7 @@ package com.view.imgurviewer.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(
     tableName = "images"
@@ -21,4 +22,4 @@ data class Image(
     val type: String,
     val views: Int,
     val width: Int
-)
+) : Serializable

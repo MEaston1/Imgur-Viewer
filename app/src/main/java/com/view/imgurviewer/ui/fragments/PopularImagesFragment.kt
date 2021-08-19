@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.view.imgurviewer.ImageAdapter
 import com.view.imgurviewer.R
@@ -25,6 +26,16 @@ class PopularImagesFragment : Fragment(R.layout.fragment_popular_images) {
         viewModel = (activity as ImgurActivity).viewModel
         setupRecyclerView()
 
+        imagesAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("image", it)
+            }
+            findNavController().navigate(
+                    R.id.action_popularImagesFragment_to_imageDetailsFragment,
+                    bundle
+            )
+        }
+
         viewModel.popularImages.observe(viewLifecycleOwner, Observer { response ->
             when(response){
                 is Resource.Success -> {
@@ -36,7 +47,7 @@ class PopularImagesFragment : Fragment(R.layout.fragment_popular_images) {
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let { message ->
-                        Log.e(TAG, "error occured: $message")
+                        Log.e(TAG, "error occurred: $message")
                     }
                 }
                 is Resource.Loading -> {
