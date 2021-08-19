@@ -1,7 +1,8 @@
 package com.view.imgurviewer.models
 
 data class ImgurResponse(
-        val data: List<Image>,
+        val data: MutableList<Image>,
         val status: Int,
-        val success: Boolean
+        val success: Boolean,
+        val totalResults: Int
 )

@@ -4,5 +4,6 @@ class Constants {
     companion object{
         const val API_KEY = "3ab1b23f1494a2c"
         const val IMG_SEARCH_DELAY = 500L
+        const val QUERY_PAGE_SIZE = 20
     }
 }
