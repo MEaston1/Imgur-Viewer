@@ -18,3 +18,7 @@ Imgur Viewer is a small image sharing application  to view images from Imgur thr
 - Retrofit2 a Type-safe HTTP client for Android,
 - OkHttp3 for logging HTTP requests and responses.
 - Material Design for building Material Components for Android.
+- Truth for making test assertations and failure messages more readable.
+ 
+ ## Testing
+ Local unit testing carried out with JUnit4 and the Truth library, limited to the Room database
