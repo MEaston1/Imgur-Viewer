@@ -22,3 +22,6 @@ Imgur Viewer is a small image sharing application  to view images from Imgur thr
  
  ## Testing
  Local unit testing carried out with JUnit4 and the Truth library, limited to the Room database
+
+## To-Do
+- Better understand and fix data models for ImgurAPI
