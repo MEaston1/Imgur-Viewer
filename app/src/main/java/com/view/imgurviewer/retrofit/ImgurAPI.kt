@@ -6,8 +6,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 // the elements of my network requests
 interface ImgurAPI {
-    @GET("gallery")
-    suspend fun getGallery(
+    @GET("gallery")     //URL segment to get data from
+    suspend fun getGallery(             // suspend used to be able to use coroutines
             @Query("section")
             sectionName: String = "hot",
             @Query("sort")
@@ -15,7 +15,7 @@ interface ImgurAPI {
             @Query("page")      // page value to allow for pagination
             pageNumber: Int = 1,
             @Query("apiKey")
-            apiKey: String = ApiKeys.CLIENT_ID
+            apiKey: String = ApiKeys.CLIENT_ID              //API key used let the api who made the request to gain access
     ): Response<ImgurResponse>
 
     // separate network request for the search feature

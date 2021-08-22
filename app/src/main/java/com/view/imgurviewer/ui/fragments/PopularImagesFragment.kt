@@ -78,7 +78,7 @@ class PopularImagesFragment : Fragment(R.layout.fragment_popular_images) {
     var isScrolling = false
 
     val scrollListener = object : RecyclerView.OnScrollListener(){
-        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {              // if scrolling, boolean set to true
             super.onScrollStateChanged(recyclerView, newState)
             if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL){
                 isScrolling = true
@@ -88,17 +88,17 @@ class PopularImagesFragment : Fragment(R.layout.fragment_popular_images) {
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
             val layoutManager = recyclerView.layoutManager as LinearLayoutManager
-            val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+            val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()         // three numbers to check if scrolled to the bottom
             val visibleItemCount = layoutManager.childCount
             val totalItemCount = layoutManager.itemCount
             
             val isNotLoadingAndLastPage = !isLoading && isLastPage
-            val isAtLastItem = firstVisibleItemPosition + visibleItemCount >= totalItemCount
+            val isAtLastItem = firstVisibleItemPosition + visibleItemCount >= totalItemCount        // calculating the last item
             val isNotAtBeginning = firstVisibleItemPosition >= 0
             val isTotalMoreThanVisible = totalItemCount >= QUERY_PAGE_SIZE
-            val shouldPaginate = isNotLoadingAndLastPage && isAtLastItem && isNotAtBeginning && isTotalMoreThanVisible && isScrolling
+            val shouldPaginate = isNotLoadingAndLastPage && isAtLastItem && isNotAtBeginning && isTotalMoreThanVisible && isScrolling       // to determine whether to paginate or not
             if(shouldPaginate){
-                viewModel.getPopularImages("hot", "viral")      // whenever called a request will be sent to
+                viewModel.getPopularImages("hot", "viral")      // whenever called a request will be sent for more images of hot and viral
                 isScrolling = false
             }
         }

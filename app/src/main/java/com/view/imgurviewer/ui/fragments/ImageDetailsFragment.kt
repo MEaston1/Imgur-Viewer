@@ -22,7 +22,7 @@ class ImageDetailsFragment : Fragment(R.layout.fragment_favourited_images) {
         val image = args.image
         imageName.text = image.title
         imageDescription.text = image.description as CharSequence?
-        Glide.with(this).load(image.link).into(displayedImage)
+        Glide.with(this).load(image.link).into(displayedImage)          // Glide library displays image into layout imageView
 
         fab.setOnClickListener {
             viewModel.favouriteImage(image)

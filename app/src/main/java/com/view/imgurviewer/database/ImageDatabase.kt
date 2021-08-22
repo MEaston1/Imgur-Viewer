@@ -7,18 +7,18 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.view.imgurviewer.models.Image
 
-@Database(
+@Database(              // Database annotation to signal database class
         entities = [Image::class],
         version = 1,
 
 )
 @TypeConverters(Converters::class)
 abstract class ImageDatabase : RoomDatabase(){
-    abstract fun getImageDao(): ImageDao
+    abstract fun getImageDao(): ImageDao                // function returns an ImageDao, used to access database functions
 
 
     companion object {
-        @Volatile
+        @Volatile               // annotated so threads can see when this thread changes
         private var instance: ImageDatabase? = null
         private val LOCK = Any()
 

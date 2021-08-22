@@ -4,11 +4,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable
 
-@Entity(
+@Entity(                    // annotated to assign Image class as a table in the database
     tableName = "images"
 )
 data class Image(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = true)    // tells Room to automatically generate an id
     var id: Int? = null,
     val animated: Boolean?,
     val bandwidth: Long?,

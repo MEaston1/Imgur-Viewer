@@ -27,18 +27,18 @@ class ImagesViewModel(val imageRepository: ImagesRepo) :ViewModel(){
         popularImages.postValue(handlePopularImages(response))
     }
     fun searchImages(searchQuery: String) = viewModelScope.launch {
-        searchImages.postValue(Resource.Loading())
-        val response = imageRepository.searchImages(searchQuery, searchImagesPage)
+        searchImages.postValue(Resource.Loading())                                              //posts to search liveData that the response is loading
+        val response = imageRepository.searchImages(searchQuery, searchImagesPage)              // fetch response from request
         searchImages.postValue(handleSearchImages(response))
     }
-    private fun handlePopularImages(response: Response<ImgurResponse>): Resource<ImgurResponse>{
+    private fun handlePopularImages(response: Response<ImgurResponse>): Resource<ImgurResponse>{        // Handles response for popular images
         if(response.isSuccessful){
             response.body()?.let { resultResponse ->
                 popularImagesPage++
-                if(popularImagesResponse == null){
+                if(popularImagesResponse == null){                      // if response is null, set it to result response set to api
                     popularImagesResponse == resultResponse
                 } else {
-                    val oldImages = popularImagesResponse?.data
+                    val oldImages = popularImagesResponse?.data         // if response is not null, add new articles to the old
                     val newImages = resultResponse.data
                     oldImages?.addAll(newImages)
                 }
@@ -47,7 +47,7 @@ class ImagesViewModel(val imageRepository: ImagesRepo) :ViewModel(){
         }
         return Resource.Error(response.message())
     }
-    private fun handleSearchImages(response: Response<ImgurResponse>): Resource<ImgurResponse>{
+    private fun handleSearchImages(response: Response<ImgurResponse>): Resource<ImgurResponse>{     //clone of above function for searching images
         if(response.isSuccessful){
             response.body()?.let { resultResponse ->
                 searchImagesPage++

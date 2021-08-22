@@ -1,6 +1,6 @@
 package com.view.imgurviewer.models
 
 data class Data(
-    val id: Any,
+    val id: String,
     val name: String
 )

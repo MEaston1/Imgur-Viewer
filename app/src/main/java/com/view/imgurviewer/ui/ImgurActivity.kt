@@ -15,7 +15,7 @@ class ImgurActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_imgur)
-        val imagesRepository = ImagesRepo(ImageDatabase(this))
+        val imagesRepository = ImagesRepo(ImageDatabase(this))      //3 lines instantiating newImages repository, viewModelProviderFactory & the viewModel
         val viewModelProviderFactory = ImageViewModelProviderFactory(imagesRepository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(ImagesViewModel::class.java)
         bottomNavigationView.setupWithNavController(imgurViewerNavHostFragment.findNavController())

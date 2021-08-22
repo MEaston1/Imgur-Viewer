@@ -45,12 +45,12 @@ class SearchedImagesFragment : Fragment(R.layout.fragment_searched_images) {
             )
         }
 
-        var job: Job? = null
+        var job: Job? = null                            // function to add a slight delay from starting  to prevent too many requests
         etSearch.addTextChangedListener {editable ->
             job?.cancel()
             job = MainScope().launch {
                 delay(IMG_SEARCH_DELAY)
-                if(editable.toString().isNotEmpty()){
+                if(editable.toString().isNotEmpty()){                   // to only search for news if there is text
                     viewModel.searchImages(editable.toString())
                 }
             }
