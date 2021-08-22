@@ -13,7 +13,7 @@ data class Image(
     val animated: Boolean?,
     val bandwidth: Long?,
     val datetime: Int?,
-    val description: Any?,
+    val description: String?,
     val height: Int?,
     //val id: String,
     val link: String?,

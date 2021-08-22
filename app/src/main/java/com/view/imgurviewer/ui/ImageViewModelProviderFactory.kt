@@ -6,6 +6,7 @@ import com.view.imgurviewer.repo.ImagesRepo
 
 class ImageViewModelProviderFactory(val imagesRepo: ImagesRepo): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        @Suppress("UNCHECKED_CAST")
         return ImagesViewModel(imagesRepo) as T
     }
 }
